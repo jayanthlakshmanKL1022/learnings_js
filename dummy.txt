@@ -3,3 +3,95 @@
 git add --all :/
 git commit -am 'message'
 git push -u origin master
+
+
+
+
+var items=[
+    { _id: 0, name: "Pepperoni", size: "small", price: 19, quantity: 10, },
+    { _id: 1, name: "Pepperoni", size: "medium", price: 20,quantity: 20,  },
+    { _id: 2, name: "Pepperoni", size: "large", price: 21,quantity: 30,  },
+    { _id: 3, name: "Cheese", size: "small", price: 12,quantity: 15,},
+    { _id: 4, name: "Cheese", size: "medium", price: 13,quantity:50,},
+    { _id: 5, name: "Cheese", size: "large", price: 14,quantity: 10,},
+    { _id: 6, name: "Vegan", size: "small", price: 17,quantity: 10,},
+    { _id: 7, name: "Vegan", size: "medium", price: 18,quantity: 10,}
+];
+
+const foodsWithQuantity = items.reduce((previousValue,currentValue)=>{
+    console.log("prev"+previousValue)
+    console.log(currentValue)
+    if(!previousValue[currentValue.name]){
+        previousValue[currentValue.name]  = currentValue.quantity; 
+    }else{
+        previousValue[currentValue.name]+=currentValue.quantity
+    }
+    return previousValue;
+},{});
+console.log(foodsWithQuantity)
+console.log({foodsWithQuantity:Object.entries(foodsWithQuantity).map((item)=>({[item[0]]:item[1]}))});
+    
+
+
+// console.log(a[0])
+// var p=new Set();
+// for(var i=0;i<a.length;i++)
+// {
+//     if(a[i].size==='medium')
+//     {
+//         var b=a[i].quantity
+//         console.log(b)
+//     }
+// }
+// var myFilter=[]
+// items.filter(function(currentvalue,index,arr)
+// {
+//     if(currentvalue.size==='medium')
+//     {
+//         console.log(currentvalue.name)
+//         console.log(currentvalue.quantity)
+   
+//     }
+// })
+// console.log(myFilter)
+// const d=a.filter(num=>num.price>15);
+// console.log(d)
+// console.log("d length"+d.length)
+// const bi=new Map();
+// for(var i=0;i<d.length;i++)
+// {
+//     var price=d[i].price
+//     if(bi.has(d[i].name))
+//     {
+//       var pi=bi.get(d[i].name)
+//       var qi=pi+price
+//       bi.delete(d[i].name)
+//       bi.set(d[i].name,qi)
+//       price=0;
+//     }
+//     else{
+//     bi.set(d[i].name,d[i].price)
+//     price=0;
+//     }
+// }
+// console.log(bi)
+
+// const e=new Map();
+// for(var i=0;i<a.length;i++)
+// {
+//     var rate=a[i].quantity;
+//     if(e.has(a[i].name))
+//     {
+//         var p=e.get(a[i].name)
+//         var q=p+rate;
+//         e.delete(a[i].name)
+//         e.set(a[i].name,q)
+//         one=0;
+//     }
+//     else
+//     {
+//     e.set(a[i].name,a[i].quantity)
+//     one=0;
+//     }
+// }
+// console.log(e)
