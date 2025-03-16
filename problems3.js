@@ -93,15 +93,4 @@ var noCommentId=comments.filter(num=>{
 )
 console.log(noCommentId)
 
-// //USERS AND THEIR MOVIE COMMENTED....
-// var userComments = comments.map(comment => {
-//     var user = users.find(user => user.id === comment.userId); // Find the user based on comment's userId
-//     return {
-//         Name: user ? user.name : 'Unknown',
-//         CommentText: comment.text,
-//         MovieId: comment.movieId
-//     };
-// });
-
-// console.log('User Comments:', userComments);
 
