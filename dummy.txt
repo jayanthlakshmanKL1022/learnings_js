@@ -31,8 +31,6 @@ const foodsWithQuantity = items.reduce((previousValue,currentValue)=>{
 console.log(foodsWithQuantity)
 console.log({foodsWithQuantity:Object.entries(foodsWithQuantity).map((item)=>({[item[0]]:item[1]}))});
     
-
-
 // console.log(a[0])
 // var p=new Set();
 // for(var i=0;i<a.length;i++)
@@ -95,3 +93,44 @@ console.log({foodsWithQuantity:Object.entries(foodsWithQuantity).map((item)=>({[
 //     }
 // }
 // console.log(e)
+
+
+// const moviesWithCommentsId=comments.map((num=>num.movieId))
+// const moviesWithCommentsId1=movies.map((num=>num.id))
+// const commentsId=moviesWithCommentsId.filter(num=>num.id===moviesWithCommentsId1.id)
+// const final=movies.map((movies=>moviesWithCommentsId))
+// console.log(final)
+// console.log(moviesWithCommentsId)
+// console.log(moviesWithCommentsId1)
+// console.log(commentsId)
+// const movies1=movies.filter((pv,cv,i)=>
+// {
+//     console.log(i)
+//     var a=cv.id;
+//     console.log(i.id)
+//     console.log("ghjkl")
+//     console.log(cv)
+//     if(a.includes(moviesWithCommentsId))
+//     {
+//         console.log(cv.name)
+//     }
+// })
+
+
+
+
+
+
+// const uniqueSet=new Set();
+// comments.forEach((num=>uniqueSet.add(num.movieId)))
+// const uniqueArray = [...uniqueSet];
+// console.log({uniqueArray})
+// const movieNames=movies.filter(movies=>uniqueArray.includes(movies.id))
+// console.log(movieNames)
+
+
+// //List of movies,where there are no comments
+// const movieIds=movies.map(num=>num.id)
+// console.log(movieIds)
+//  const noCommentId=comments.filter(num=>movieIds===num.movieId)
+// console.log(noCommentId)

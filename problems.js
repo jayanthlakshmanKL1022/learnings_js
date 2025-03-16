@@ -10,25 +10,47 @@ var items=[
     { _id: 6, name: "Vegan", size: "small", price: 17,quantity: 10,},
     { _id: 7, name: "Vegan", size: "medium", price: 18,quantity: 10,}
 ];
-//creating objects
+//creating objects-->***very important*****<-----//
 function createObj(p1,p2)
 {
     return{
-        name:p1,
-        quantity:p2
+        p1,
+        p2
     }
 }
 const objArray=items.filter(num=>num.size==='medium').map(function(cv,_index,_array)
 {
    return createObj(cv.name,cv.quantity)
 })
-console.log(objArray)
+console.log("the object array is:")
+ console.log(objArray)
 
-//well there is an inbuilt groupBy function ,but it just does grouping
+
+const mediumQuantity=items.reduce((previous,current)=>{
+    console.log({previous,current});
+    const size = current.size;
+    if(size==='medium')
+    {
+        if(!previous[current.name])
+        {
+            previous[current.name]=current.quantity
+        }
+        else
+        {
+            previous[current.name]+=current.quantity
+        }
+    }
+    return previous;
+},{})
+console.log("the medium quantity"+mediumQuantity)
+
+
+
+
+//well there is an inbuilt groupBy function ,but it just does grouping....
 const price=items.filter(num=>num.price>15)
 const groupedByName = _.groupBy(price, 'name');
 console.log(groupedByName)
-
 //reduce method
 const result=items.reduce((prev,cur)=>{
     if(!prev[cur.name])
@@ -41,8 +63,8 @@ const result=items.reduce((prev,cur)=>{
     }
     return  prev
 },{})
-console.log(result)
-
+console.log("the res is"+result)
+//solutions..........
 const solution=items.reduce((previous,current)=>
    {
     if(current.price>15)
@@ -55,10 +77,25 @@ const solution=items.reduce((previous,current)=>
             previous[current.name]+=current.quantity
         }
     }
-        return previous
+    return previous
 },{})
-console.log(solution)
+ console.log('the sol is'+ solution)
+
 
 
   
 
+ const foodsWithQuantity = items.reduce((previousValue,currentValue)=>{
+    console.log(previousValue)
+    console.log(currentValue)
+    const name=currentValue.name
+    if(currentValue.size==='medium')
+    {
+    if(!previousValue[name]){
+        previousValue[name]  = currentValue.quantity; 
+    }else{
+        previousValue[name]+=currentValue.quantity
+    }}
+    return previousValue;
+},{});
+console.log(foodsWithQuantity)
