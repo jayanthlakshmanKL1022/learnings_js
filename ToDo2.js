@@ -24,8 +24,7 @@ while (true) {
           }
           else
           {
-          toDo.push({ key: i , task: myRemainder, status: "Not Completed" });
-          i=i+1
+          toDo.push({ key: toDo.length+1 , task: myRemainder, status: "Not Completed" });
           console.log("Task has been added successfully ! you can view them!");
           }
       }
@@ -71,11 +70,11 @@ while (true) {
           const delId = prompt(
             "Enter the key number inorder to delete the task:"
           );
-        toDo = toDo.filter(v=>v.key!==+delId)
+        toDo = toDo.filter(v=>v.key!==+delId).map((item,inex)=>({...item,key:inex+1}))
           console.log("Tasks has been deleted successfully!")
         }
         var k=1;
-       toDo.forEach((todo=>todo.key=k++))
+    //    toDo.forEach((todo=>todo.key=k++))
       }
     } else if (option === "5") {
       if (toDo.length == 0) {
@@ -87,7 +86,7 @@ while (true) {
         var toggleIdNumber = Number(toggleId);
         toggleIdNumber = toggleIdNumber - 1;
         var myStatus = prompt(
-          "change the status of the task:(For completed c and for not completed n:"
+          "change the status of the task:(For completed c and for not completed n:)"
         );
         if (myStatus === "c") {
           if (toDo[toggleIdNumber].status === "completed") {
