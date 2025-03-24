@@ -135,7 +135,35 @@ var groupbyAges=_.groupBy(ageRanges,'agerange')
   ))
 console.log(finalResult)
 
+const sortedQuestion=question.toSorted((a,b)=>a.age-b.age)
 
-  
 
-  
+console.log("People who are active:")
+
+var activePeople=sortedQuestion.filter(people=>people.isActive===true).map(people=>people.name)
+console.log(activePeople)
+
+var townWithPeople=question.map(item=>
+{
+  return{
+    name:item.name,
+    town:item.address.city
+  }
+}
+)
+console.log(townWithPeople)
+var groupBasedOnTown=_.groupBy(townWithPeople,item=>item.town)
+console.log(groupBasedOnTown)
+const transformedObject = _.mapValues(groupBasedOnTown, (users) =>{
+  return users.map(user=>
+  {
+    return user.name
+  })})
+console.log(transformedObject)
+
+var totalPeople=question.length;
+var activePeople=question.filter(people=>people.isActive===true).length
+var inactivePeople=totalPeople-activePeople
+const obj1={active:activePeople,inactive:inactivePeople}
+console.log("People who are active and inactive:")
+console.log(obj1)
